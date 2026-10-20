@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes Études — version interactive</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #d9d9d9;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+  }
+  .barre {
+    position: sticky; top: 0; z-index: 50;
+    background: #ffffff; border-bottom: 2px solid #111;
+    padding: 10px 16px; display: flex; gap: 10px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .barre .titre { font-weight: bold; font-size: 17px; margin-right: 8px; }
+  .barre button {
+    font-family: inherit; font-size: 15px; font-weight: bold;
+    padding: 8px 16px; border: 2px solid #111; border-radius: 8px;
+    background: #111; color: #fff; cursor: pointer;
+  }
+  .barre button.secondaire { background: #fff; color: #111; }
+  .barre button:hover { opacity: 0.85; }
+  .barre .compteur { font-size: 15px; margin-left: auto; }
+  .page {
+    position: relative; background: #fff; width: 816px; min-height: 1056px;
+    margin: 26px auto; padding: 56px 96px 64px 97px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.35);
+  }
+  .num { position: absolute; top: 26px; right: 40px; font-size: 13px; color: #555; }
+  .chapitre { font-size: 20px; font-weight: bold; margin: 6px 0 14px 0; line-height: 1.3; }
+  .section { font-size: 15px; font-weight: bold; margin: 20px 0 8px 0; line-height: 1.35; }
+  .soustitre { font-size: 15px; font-weight: bold; margin: 12px 0 8px 0; line-height: 1.35; }
+  p { font-size: 15px; line-height: 1.5; text-align: justify; margin: 0 0 10px 0; }
+  .liste { font-size: 15px; line-height: 1.5; margin: 0 0 10px 0; padding-left: 26px; }
+  .liste li { margin-bottom: 2px; }
+  table.grise { border-collapse: collapse; margin: 10px 0 14px 0; }
+  table.grise td {
+    background: #f3f3f3; border: 1.5px solid #111;
+    padding: 6px 10px; font-size: 15px; line-height: 1.35;
+    vertical-align: middle;
+  }
+  .picot { font-size: 9px; vertical-align: 2px; }
+  .rep { cursor: pointer; border-radius: 3px; }
+  .rep:hover { outline: 2px solid #888; outline-offset: 1px; }
+  .rep.cache { color: transparent; }
+  .saviez {
+    background: #000; color: #fff; border-radius: 16px;
+    padding: 22px 28px; margin: 16px 0;
+    font-family: Calibri, "Segoe UI", sans-serif; font-style: italic;
+    font-size: 16px; line-height: 1.45; text-align: center;
+  }
+  .saviez.leger { font-weight: 300; }
+  .saviez.leger .sv-titre { font-weight: 700; }
+  .saviez.regulier .sv-titre { font-weight: 400; }
+  .saviez .vide { height: 10px; }
+  @media print { .barre { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<div class="barre">
+  <span class="titre">Notes Études — corrigé interactif</span>
+  <button onclick="toutAfficher()">Tout afficher</button>
+  <button class="secondaire" onclick="toutMasquer()">Tout masquer</button>
+  <span class="compteur" id="compteur"></span>
+</div>
+<section class="page"><div class="num">1</div><h1 class="chapitre"><b>CHAPITRE 1 : CONCILIER LES ÉTUDES, LE TRAVAIL ET LA VIE </b> <b>PERSONNELLE </b></h1>
+<h3 class="soustitre"><b>Un équilibre fragile, mais structurable </b></h3>
+<p>Poursuivre des études ne se fait jamais dans le vide. Les élèves doivent souvent composer avec:</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Un emploi</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des obligations personnelles</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des responsabilités familiales</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des contraintes financières</span></td></tr></table>
+<p>La conciliation études-travail-vie personnelle n’est donc pas un luxe. C’est une réalité quotidienne.</p>
+<h2 class="section"><b>LA CONCILIATION </b></h2>
+<h3 class="soustitre"><b>Une question d’organisation, mais pas seulement </b></h3>
+<p>Concilier signifie organiser son temps et son énergie entre plusieurs sphères de la vie. Cela implique :</p>
+<table class="grise" style="width:432px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Faire des choix</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Établir des priorités</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Accepter certaines limites</span></td></tr></table>
+<p>La difficulté de conciliation n’est pas toujours liée à un manque de volonté. Elle est souvent liée à l’accumulation des rôles.</p>
+<h2 class="section"><b>LES TROIS SPHÈRES À CONCILIER </b></h2>
+<p><b>Les études</b> demandent :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">De la présence</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Du temps d’étude</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">De la concentration</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Une capacité à planifier</span></td></tr></table>
+<p>La charge scolaire ne se limite pas aux heures en classe.</p></section><section class="page"><div class="num">2</div><p><b>Le travail</b> permet :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">D’obtenir un revenu</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">De gagner en autonomie</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">D’acquérir de l’expérience</span></td></tr></table>
+<p>Cependant, il impose :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Des horaires</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Des exigences</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Une fatigue</span></td></tr></table>
+<p><b>La vie</b> personnelle comprend :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">La famille</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">La santé</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les amis</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les responsabilités domestiques</span></td></tr></table>
+<p>Elle est souvent la première sphère sacrifiée lorsque le temps manque.</p>
+<h2 class="section"><b>LE TEMPS COMME RESSOURCE LIMITÉE </b></h2>
+<p>Le temps est une ressource fixe.</p>
+<p>Il ne peut pas être augmenté, seulement réparti. Lorsque les exigences des études et du travail augmentent simultanément, la marge de manœuvre diminue rapidement.</p>
+<p>Ce n’est pas la mauvaise gestion du temps qui crée le déséquilibre. C’est souvent le surplus de demandes.</p>
+<div class="saviez leger"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Le temps ne se gère pas, il se perd </i></div><div><i></i></div><div><i>Tout le monde a exactement </i><b><i>168 heures par semaine</i></b><i>. </i></div><div><i>Pas une de plus. Pas une de moins. </i></div><div><i>Quand un élève ajoute 20 heures de travail, il ne “gère” pas mieux son temps. </i></div><div><i>Il </i><b><i>retire du temps ailleurs</i></b><i> : sommeil, récupération, études. </i></div><div><i></i></div><div>👉<i> Les élèves qui s’épuisent ne sont pas mal organisés. Ils sont à découvert. </i></div></div></section><section class="page"><div class="num">3</div><h2 class="section"><b>L’IMPORTANCE DE DEMANDER DE L’AIDE </b></h2>
+<p>Reconnaître une difficulté de conciliation n’est pas un échec. C’est une étape normale dans un parcours scolaire. Demander de l’aide permet :</p>
+<table class="grise" style="width:449px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">D’ajuster les attentes</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">De prévenir l’épuisement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">D’éviter des décisions irréversibles</span></td></tr></table>
+<h1 class="chapitre"><b>CHAPITRE 2 : TRAVAILLER PENDANT SES ÉTUDES : FORMES, </b> <b>AVANTAGES ET LIMITES </b></h1>
+<h3 class="soustitre"><b>Un choix fréquent, aux effets variables </b></h3>
+<p>Travailler pendant ses études est devenu une réalité pour un grand nombre d’élèves.</p>
+<p>Ce choix est rarement anodin. Il est souvent motivé par des contraintes financières, mais aussi par le désir d’autonomie. Le travail pendant les études peut être une ressource. Il peut aussi devenir un facteur de fragilisation du parcours scolaire.</p>
+<h2 class="section"><b>LES FORMES DE TRAVAIL PENDANT LES ÉTUDES </b></h2>
+<h2 class="section"><b>LE TRAVAIL À TEMPS PARTIEL </b></h2>
+<p>Le travail à temps partiel est la forme la plus répandue chez les élèves. Il permet :</p>
+<table class="grise" style="width:380px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un revenu régulier</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une certaine stabilité</span></td></tr></table>
+<p>Cependant, même un emploi à temps partiel peut devenir exigeant lorsque le nombre d’heures augmente.</p>
+<h2 class="section"><b>LE TRAVAIL OCCASIONNEL OU SUR APPEL </b></h2>
+<p>Le travail occasionnel offre plus de flexibilité apparente. Mais il comporte :</p>
+<table class="grise" style="width:494px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Des horaires imprévisibles</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une difficulté à planifier le temps d’étude</span></td></tr></table></section><section class="page"><div class="num">4</div><p>Cette imprévisibilité peut nuire à l’organisation scolaire.</p>
+<h2 class="section"><b>LE TRAVAIL SAISONNIER </b></h2>
+<p>Le travail saisonnier est concentré sur une période précise. Il permet parfois d’accumuler un revenu important en peu de temps.</p>
+<h2 class="section"><b>LES AVANTAGES DU TRAVAIL PENDANT LES ÉTUDES </b></h2>
+<h3 class="soustitre"><b>Des effets positifs possibles </b></h3>
+<p>Travailler pendant les études peut offrir :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Une meilleure gestion du budget</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Une expérience du monde du travail</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le développement de compétences</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Une valorisation personnelle</span></td></tr></table>
+<p>Pour certains élèves, le travail favorise la discipline et l’organisation.</p>
+<h2 class="section"><b>LE NOMBRE D’HEURES TRAVAILLÉES </b></h2>
+<h3 class="soustitre"><b>Un facteur déterminant </b></h3>
+<p>Ce n’est pas le fait de travailler qui pose problème. C’est la quantité. Lorsque le nombre d’heures augmente :</p>
+<ul class="liste"><li>Le temps d’étude diminue</li><li>La récupération devient insuffisante</li><li>La concentration baisse</li></ul>
+<p>Les conséquences ne sont pas toujours immédiates, mais elles s’installent progressivement. Elle est souvent sous-estimée par les élèves eux-mêmes.</p>
+<h2 class="section"><b>LE RÔLE DE L’EMPLOYEUR </b></h2>
+<h3 class="soustitre"><b>Une responsabilité partagée </b></h3>
+<p>L’employeur joue un rôle important dans la conciliation. Un employeur sensible à la réalité étudiante peut :</p>
+<table class="grise" style="width:437px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Adapter les horaires</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Respecter les périodes d’examens</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Limiter les heures</span></td></tr></table></section><section class="page"><div class="num">5</div><h1 class="chapitre"><b>CHAPITRE 3 : EFFETS DU TRAVAIL PENDANT LES ÉTUDES ET </b> <b>RISQUES DE DÉCROCHAGE </b></h1>
+<h2 class="section"><b>DES EFFETS PROGRESSIFS </b></h2>
+<h3 class="soustitre"><b>Rarement visibles au départ </b></h3>
+<p>Les difficultés liées au cumul études-travail apparaissent rarement de façon soudaine. Elles s’installent :</p>
+<table class="grise" style="width:520px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Graduellement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Silencieusement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Souvent sans être immédiatement reconnues</span></td></tr></table>
+<p>Au début, l’élève s’adapte. Puis il compense. Enfin, il s’épuise.</p>
+<h2 class="section"><b>LES IMPACTS SUR LA RÉUSSITE SCOLAIRE </b></h2>
+<h3 class="soustitre"><b>Avant l’échec, il y a la baisse de qualité </b></h3>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — On ne décroche presque jamais d’un coup </i></div><div><i></i></div><div><i>La plupart des élèves qui décrochent ne prennent jamais la décision clairement. </i></div><div><i>Ils ne se disent pas : </i></div><div><i>« J’arrête. » </i></div><div><i>Ils se disent plutôt : </i></div><div>• <i> </i><i>« Je vais manquer ce cours » </i></div><div>• <i> </i><i>« Je ferai ce travail plus tard » </i></div><div>• <i> </i><i>« Je suis trop fatigué aujourd’hui » </i></div><div>• <i> </i><i> </i></div><div>👉<i> Le décrochage, c’est une suite de petits renoncements discrets. </i></div></div>
+<h2 class="section"><b>LE TRAVAIL COMME FACTEUR DE PRESSION ÉCONOMIQUE </b></h2>
+<p>Pour certains élèves, le travail n’est pas un choix. C&#x27;est une nécessité économique. Dans ces situations :</p>
+<ul class="liste"><li>Réduire les heures n’est pas toujours possible.</li><li>La pression financière s’ajoute à la pression scolaire.</li></ul></section><section class="page"><div class="num">6</div><h2 class="section"><b>LES INÉGALITÉS DEVANT LE DÉCROCHAGE </b></h2>
+<p>Tous les élèves ne sont pas exposés aux mêmes risques. Les élèves en situation de vulnérabilité:</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Financière</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Familiale</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Scolaire</span></td></tr></table>
+<p>sont plus touchés par les effets négatifs du cumul études-travail. Le décrochage reflète souvent des inégalités préexistantes.</p>
+<h2 class="section"><b>LES SIGNES PRÉCURSEURS </b></h2>
+<h3 class="soustitre"><b>Des indicateurs à reconnaître </b></h3>
+<p>Avant le décrochage, certains signes apparaissent :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Fatigue persistante</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Baisse de rendement</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Désorganisation croissante</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Perte de confiance</span></td></tr></table>
+<p>Reconnaître ces signes permet d’agir avant la rupture.</p>
+<h2 class="section"><b>LE RÔLE DES ADULTES ET DES INSTITUTIONS </b></h2>
+<p>La prévention du décrochage ne repose pas uniquement sur l’élève. Elle implique :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les enseignants</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les employeurs</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les établissements</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les services d’accompagnement</span></td></tr></table>
+<p>Le décrochage est un enjeu collectif. Travailler pendant ses études n’entraîne pas automatiquement l’échec.</p>
+<p>Mais lorsque les conditions deviennent trop lourdes, même les élèves les plus motivés peuvent décrocher.</p>
+<h1 class="chapitre"><b>CHAPITRE </b> <b>4 </b> <b>: </b> <b>L’IMPORTANCE </b> <b>DU </b> <b>DIPLÔME </b> <b>ET </b> <b>LES </b> <b>CONSÉQUENCES ÉCONOMIQUES </b></h1>
+<h3 class="soustitre"><b>Un papier… qui structure des trajectoires </b></h3>
+<p>Le diplôme est souvent perçu comme une finalité. En réalité, il agit surtout comme un point de passage. Il ne garantit pas un emploi précis, mais il ouvre ou ferme des possibilités.</p></section><section class="page"><div class="num">7</div><h2 class="section"><b>DIPLÔME ET REVENU </b></h2>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Le diplôme ne garantit rien… mais il bloque beaucoup </i></div><div><i></i></div><div><i>Un diplôme ne promet pas un emploi précis. </i></div><div><i>Mais son absence ferme des portes avant même l’entrevue. </i></div><div><i></i></div><div>👉<i> Sans diplôme, on ne perd pas un emploi. On perd la possibilité de postuler. </i></div></div>
+<h3 class="soustitre"><b>Des écarts qui s’accumulent </b></h3>
+<p>Le niveau de scolarité influence le revenu moyen. À court terme, les écarts peuvent sembler modestes. À long terme, ils s’accumulent. Un revenu légèrement plus élevé chaque année produit:</p>
+<table class="grise" style="width:485px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une plus grande capacité d’épargne</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un meilleur accès au logement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une plus grande sécurité financière</span></td></tr></table>
+<h2 class="section"><b>LE COÛT DU NON-DIPLÔME </b></h2>
+<p>Ne pas obtenir de diplôme n’est pas sans conséquence économique. Cela peut entraîner :</p>
+<table class="grise" style="width:700px;margin-left:-31px"><tr><td style="width:48.8%"><span class="picot">●</span> <span class="rep cache">Des revenus plus faibles</span></td><td style="width:51.0%"><span class="picot">●</span> <span class="rep cache">Une exposition plus forte aux blessures</span></td></tr><tr><td style="width:48.8%"><span class="picot">●</span> <span class="rep cache">Une dépendance accrue au travail physique</span></td><td style="width:51.0%"><span class="picot">●</span> <span class="rep cache">Une difficulté à réintégrer le système scolaire</span></td></tr></table>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Le coût du non-diplôme arrive plus tard </i></div><div><i></i></div><div><i>Les conséquences du non-diplôme ne frappent pas tout de suite. </i></div><div><i>Elles apparaissent quand : </i></div><div>• <i> </i><i>le corps fatigue </i></div><div>• <i> </i><i>les options diminuent </i></div><div>• <i> </i><i>le retour aux études devient plus difficile </i></div><div><i></i></div><div>👉<i> Le coût réel du non-diplôme est souvent invisible à 17 ans. </i></div></div></section><section class="page"><div class="num">8</div><h2 class="section"><b>LE DIPLÔME ET LES CONDITIONS DE TRAVAIL </b></h2>
+<p>Le niveau de scolarité influence aussi :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les horaires</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les avantages sociaux</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">La flexibilité</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">L’accès aux protections</span></td></tr></table>
+<p>Les emplois nécessitant peu de qualifications offrent souvent :</p>
+<ul class="liste"><li>Moins de protections.</li><li>Moins de flexibilité.</li><li>Moins de perspectives d’avancement.</li></ul>
+<h1 class="chapitre"><b>CHAPITRE 5 : LES COÛTS RÉELS LIÉS AUX ÉTUDES </b></h1>
+<h3 class="soustitre"><b>Ce qui dépasse largement les droits de scolarité </b></h3>
+<p>Poursuivre des études a un coût. Ce coût ne se limite pas aux frais d’inscription ou aux droits de scolarité. Il comprend un ensemble de dépenses directes et indirectes qui influencent les décisions scolaires.</p>
+<h2 class="section"><b>LES FRAIS DIRECTS </b></h2>
+<p>Les frais directs sont les dépenses clairement associées aux études. Ils incluent notamment :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les droits de scolarité</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les manuels</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les frais d’inscription</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les fournitures</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">La matériel scolaire</span></td></tr></table>
+<p>Ces coûts sont généralement connus à l’avance, mais leur accumulation peut être importante.</p>
+<h2 class="section"><b>LES FRAIS LIÉS AU TRANSPORT </b></h2>
+<p>Les études impliquent souvent des déplacements. Les frais de transport peuvent inclure :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le transport en commun</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">L’entretien d’un véhicule</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">L’essence</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le stationnement</span></td></tr></table></section><section class="page"><div class="num">9</div><p>Ces coûts sont parfois invisibles, car étalés dans le temps.</p>
+<h2 class="section"><b>LE LOGEMENT </b></h2>
+<p>Pour certains élèves, poursuivre des études implique un changement de lieu de résidence. Le logement peut représenter :</p>
+<table class="grise" style="width:587px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">La dépense la plus importante</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un facteur de stress financier</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une contrainte sur le choix du programme ou de l’établissement</span></td></tr></table>
+<p>Le coût du logement influence directement la capacité de poursuivre des études à temps plein.</p>
+<h2 class="section"><b>LES FRAIS INDIRECTS </b></h2>
+<h3 class="soustitre"><b>Ce que l’on oublie souvent de compter </b></h3>
+<p>Les frais indirects sont des dépenses qui ne sont pas exclusivement scolaires, mais qui augmentent en raison des études. Ils peuvent inclure :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Alimentation</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Télécommunications</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Vêtements</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Services essentiels</span></td></tr></table>
+<p>Ces dépenses existent déjà, mais leur poids augmente lorsque le revenu est limité.</p>
+<h2 class="section"><b>LE COÛT D’OPPORTUNITÉ </b></h2>
+<p>Le coût d’opportunité correspond à ce à quoi on renonce en faisant un choix. Poursuivre des études peut signifier travailler moins et/ou gagner moins à court terme. Ce revenu non gagné fait partie du coût réel des études.</p>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Étudier coûte aussi ce qu’on ne gagne pas </i></div><div><i></i></div><div><i>Quand un élève étudie à temps plein, il ne perd pas seulement de l’argent. </i></div><div><i>Il renonce à un salaire immédiat. </i></div><div><i></i></div><div>👉<i> Le vrai coût des études n’est pas seulement ce qu’on paie, mais ce à quoi on renonce. </i></div></div></section><section class="page"><div class="num">10</div><h2 class="section"><b>LES INÉGALITÉS FACE AUX COÛTS DES ÉTUDES </b></h2>
+<p>Tous les élèves ne font pas face aux mêmes réalités financières. Certains disposent :</p>
+<table class="grise" style="width:336px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">D’un soutien familial</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">D’économies</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">D’un réseau</span></td></tr></table>
+<p>D’autres doivent assumer seuls l’ensemble des coûts. Ces inégalités influencent les choix de parcours et la durée des études. Ignorer les coûts ne les fait pas disparaître. Les anticiper permet de mieux y faire face.</p>
+<p>Poursuivre des études est un investissement. Mais comme tout investissement, il comporte des coûts qu’il faut connaître pour pouvoir avancer.</p>
+<h1 class="chapitre"><b>CHAPITRE 6 : LES MODES DE FINANCEMENT DES ÉTUDES </b></h1>
+<h3 class="soustitre"><b>Combiner des ressources, faire des choix </b></h3>
+<p>Poursuivre des études nécessite presque toujours une stratégie financière. Rarement, une seule source suffit à couvrir l’ensemble des coûts. La plupart des élèves combinent plusieurs modes de financement.</p>
+<h2 class="section"><b>LE FINANCEMENT PERSONNEL </b></h2>
+<h3 class="soustitre"><b>Compter sur ses propres ressources </b></h3>
+<p>Le financement personnel correspond à l’argent dont l’élève dispose directement. Il peut provenir:</p>
+<table class="grise" style="width:708px;margin-left:-34px"><tr><td style="width:25.7%"><span class="picot">●</span> <span class="rep cache">D’économies</span></td><td style="width:37.5%"><span class="picot">●</span> <span class="rep cache">D’une revenu d’emploi</span></td><td style="width:36.4%"><span class="picot">●</span> <span class="rep cache">De revenus occasionnels</span></td></tr></table>
+<p>Ce mode de financement offre une certaine autonomie, mais il est souvent limité.</p>
+<h2 class="section"><b>LE SOUTIEN FAMILIAL </b></h2>
+<h3 class="soustitre"><b>Une aide inégale </b></h3>
+<p>Le soutien familial peut prendre différentes formes :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Aide financière directe</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Paiement de certaines dépenses</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Logement</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Soutien matériel</span></td></tr></table></section><section class="page"><div class="num">11</div><h2 class="section"><b>LES BOURSES </b></h2>
+<h3 class="soustitre"><b>Une aide sans remboursement </b></h3>
+<p>Les bourses sont des sommes d’argent accordées pour soutenir les études.</p>
+<p>Elles peuvent être :</p>
+<table class="grise" style="width:413px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Basées sur le mérite</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Basées sur la situation financière</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Liées à un domaine d’études</span></td></tr></table>
+<p>Contrairement aux prêts, les bourses n’ont pas à être remboursées. Cependant, elles sont souvent.<b> </b></p>
+<h2 class="section"><b>LES PRÊTS </b></h2>
+<h3 class="soustitre"><b>Un financement à rembourser </b></h3>
+<p>Les prêts permettent de financer les études en empruntant de l’argent. Ils offrent :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un accès immédiat à des fonds</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une possibilité de poursuivre les études malgré un revenu limité</span></td></tr></table>
+<p>Mais ils impliquent :</p>
+<table class="grise" style="width:470px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un remboursement futur</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Des intérêts</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une responsabilité financière à long terme</span></td></tr></table>
+<h2 class="section"><b>LES PRÊTS PERSONNELS ET LE CRÉDIT </b></h2>
+<p>Certains élèves utilisent :</p>
+<table class="grise" style="width:333px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Des prêts personnels</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Des cartes de crédit</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Des marges de crédit</span></td></tr></table></section><section class="page"><div class="num">12</div><p>Ces formes de financement sont souvent plus coûteuses que les prêts étudiants. Elles doivent être utilisées avec prudence, car elles augmentent l’endettement.</p>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Emprunter n’est pas échouer </i></div><div><i></i></div><div><i>Un prêt étudiant ne signifie pas un échec financier. </i></div><div><i>Il signifie un pari sur l’avenir. </i></div><div><i></i></div><div>👉<i> Le danger n’est pas d’emprunter. C’est d’emprunter sans comprendre. </i></div></div>
+<h2 class="section"><b>LES PROGRAMMES DE PRÊTS ET BOURSES </b></h2>
+<h3 class="soustitre"><b>Un financement encadré </b></h3>
+<p>Les programmes gouvernementaux combinent des prêts et des bourses. Ils tiennent compte :</p>
+<table class="grise" style="width:316px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Du revenu</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">De la situation familiale</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Du coût des études</span></td></tr></table>
+<p>Ces programmes visent à rendre les études accessibles, même en l’absence de ressources suffisantes.</p>
+<h2 class="section"><b>LE REEE </b></h2>
+<h3 class="soustitre"><b>Une épargne à long terme </b></h3>
+<p>Le régime enregistré d’épargne-études est un outil d’épargne destiné à financer les études postsecondaires. Il permet :</p>
+<ul class="liste"><li>D’accumuler de l’épargne.</li><li>De bénéficier de subventions.</li></ul>
+<p>Cependant, tous les élèves n’y ont pas accès, selon leur parcours familial.</p>
+<h2 class="section"><b>COMBINER LES SOURCES DE FINANCEMENT </b></h2>
+<h3 class="soustitre"><b>Une réalité courante </b></h3>
+<p>La majorité des élèves utilisent plusieurs sources de financement en même temps :</p></section><section class="page"><div class="num">13</div><table class="grise" style="width:327px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Travail + prêt</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Bourse + soutien familial</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Prêt + épargne</span></td></tr></table>
+<p>Cette combinaison nécessite une bonne organisation et une vision à moyen terme.</p>
+<p>Financer ses études, ce n’est pas trouver une solution parfaite. C’est construire un équilibre suffisamment stable pour avancer.</p>
+<h1 class="chapitre"><b>CHAPITRE 7 : L’AIDE FINANCIÈRE AUX ÉTUDES :  </b></h1>
+<h2 class="section"><b>FONCTIONNEMENT ET CONDITIONS </b></h2>
+<h3 class="soustitre"><b>Un soutien encadré, pas automatique </b></h3>
+<p>L’aide financière aux études existe pour rendre les études accessibles. Elle ne vise pas à éliminer tous les obstacles financiers, mais à réduire les inégalités d’accès à la formation. L’aide financière repose sur des règles précises. Elle est encadrée, conditionnelle et révisable.</p>
+<h2 class="section"><b>UNE AIDE BASÉE SUR LA SITUATION FINANCIÈRE </b></h2>
+<h3 class="soustitre"><b>Pas sur le mérite </b></h3>
+<p>Contrairement à certaines bourses, l’aide financière est principalement basée sur :</p>
+<ul class="liste"><li>Les revenus.</li><li>La situation familiale.</li><li>Les charges financières.</li></ul>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — L’aide financière ne récompense pas les meilleurs </i></div><div><i></i></div><div><i>L’aide financière ne vise pas la performance scolaire. </i></div><div><i>Elle vise l’équité. </i></div><div><i></i></div><div>👉<i> Ce système existe pour compenser des écarts, pas pour récompenser des résultats. </i></div></div></section><section class="page"><div class="num">14</div><h2 class="section"><b>LA LOGIQUE DES PRÊTS </b></h2>
+<h3 class="soustitre"><b>Un remboursement différé </b></h3>
+<p>Les prêts permettent de financer les études immédiatement.</p>
+<p>Le remboursement commence généralement après la fin des études et/ou après une période de transition (6 mois après la fin des études). Les intérêts peuvent être :</p>
+<table class="grise" style="width:460px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Assumés par l’État pendant les études</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Transférés à l’élève après</span></td></tr></table>
+<p>Le prêt représente un engagement à long terme.</p>
+<h2 class="section"><b>LES CRITÈRES D’ADMISSIBILITÉ </b></h2>
+<p>Pour être admissible à l’aide financière, l’élève doit notamment :</p>
+<table class="grise" style="width:548px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Être inscrit à un programme reconnu</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Avoir un statut d’étudiant admissible</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Respecter certaines conditions de progression</span></td></tr></table>
+<p>L’aide n’est pas automatique. Elle dépend du respect de ces critères.</p>
+<h2 class="section"><b>LA DÉPENDANCE FINANCIÈRE </b></h2>
+<h3 class="soustitre"><b>Un élément central du calcul </b></h3>
+<p>Le calcul de l’aide financière tient compte de l’âge, de la situation familiale et de l&#x27;autonomie financière. Selon ces facteurs, l’élève peut être considéré à charge ou autonome. Cette distinction influence le montant accordé.</p>
+<h2 class="section"><b>LES REVENUS PRIS EN COMPTE </b></h2>
+<p>Les revenus considérés peuvent inclure :</p>
+<table class="grise" style="width:366px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Revenus d’emploi</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Revenus de placements</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Certaines aides</span></td></tr></table></section><section class="page"><div class="num">15</div><p>Un revenu plus élevé peut réduire le montant d’aide accordé. L’aide financière vise à combler un écart, pas à remplacer entièrement les revenus.</p>
+<h2 class="section"><b>LES DÉPENSES RECONNUES </b></h2>
+<h3 class="soustitre"><b>Une estimation encadrée </b></h3>
+<p>L’aide financière tient compte de dépenses estimées, telles que :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Frais de scolarité</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Transport</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Logement</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Matériel</span></td></tr></table>
+<p>Ces montants sont calculés selon des barèmes, pas selon les dépenses réelles de chaque élève.</p>
+<h2 class="section"><b>LES OBLIGATIONS DE L’ÉLÈVE </b></h2>
+<h3 class="soustitre"><b>Un engagement réciproque </b></h3>
+<p>Recevoir de l’aide financière implique :</p>
+<table class="grise" style="width:434px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Respecter les conditions du programme</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Déclarer les changements de situation</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Poursuivre activement les études</span></td></tr></table>
+<p>L’aide peut être ajustée ou suspendue si les conditions ne sont plus respectées. L’aide financière aux études est un levier important. Mais comme tout levier, elle fonctionne dans un cadre précis et demande une compréhension claire pour être utilisée efficacement.</p>
+<h1 class="chapitre"><b>CHAPITRE 8 : MIEUX SE CONNAÎTRE : INTÉRÊTS ET APTITUDES </b></h1>
+<h2 class="section"><b>LA CONNAISSANCE DE SOI </b></h2>
+<h3 class="soustitre"><b>Un processus, pas une révélation </b></h3>
+<p>Se connaître ne signifie pas avoir toutes les réponses. Cela signifie identifier ce qui motive, reconnaître ses forces et comprendre ses limites.</p>
+<p>La connaissance de soi se construit avec l’expérience, pas seulement par la réflexion.</p></section><section class="page"><div class="num">16</div><h2 class="section"><b>LES INTÉRÊTS </b></h2>
+<h3 class="soustitre"><b>Ce qui attire et motive </b></h3>
+<p>Les intérêts correspondent aux domaines, activités ou sujets qui suscitent :</p>
+<table class="grise" style="width:360px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">De la curiosité</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">De l’engagement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Du plaisir à apprendre</span></td></tr></table>
+<p>Un intérêt durable facilite :</p>
+<table class="grise" style="width:452px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">L’effort</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">La persévérance</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">L’investissement dans les études</span></td></tr></table>
+<p>Cependant, un intérêt seul ne suffit pas à garantir la réussite.</p>
+<h2 class="section"><b>LA VARIABILITÉ DES INTÉRÊTS </b></h2>
+<p>Les intérêts évoluent avec l’âge, les expériences et les contextes de vie. Un intérêt fort à un moment donné peut :</p>
+<ul class="liste"><li>Se transformer</li><li>S’élargir</li><li>Diminuer</li></ul>
+<p>Changer d’intérêt n’est pas un échec. C’est une adaptation.</p>
+<h2 class="section"><b>LES APTITUDES </b></h2>
+<h3 class="soustitre"><b>Ce que l’on fait avec plus de facilité </b></h3>
+<p>Les aptitudes correspondent aux capacités naturelles ou développées d’une personne.</p>
+<p>Elles peuvent être :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Intellectuelles</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Relationnelles</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Manuelles</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Organisationnelles</span></td></tr></table>
+<p>Une aptitude n’est pas synonyme de talent exceptionnel. C’est une facilité relative.</p></section><section class="page"><div class="num">17</div><h2 class="section"><b>APTITUDES INNÉES ET DÉVELOPPÉES </b></h2>
+<p>Certaines aptitudes semblent naturelles. D’autres se développent avec la pratique. L’effort permet:</p>
+<ul class="liste"><li>D’améliorer une aptitude</li><li>De compenser certaines difficultés</li></ul>
+<p>Mais ignorer complètement ses aptitudes rend le parcours plus exigeant.</p>
+<h2 class="section"><b>INTÉRÊTS ET APTITUDES </b></h2>
+<h3 class="soustitre"><b>Une combinaison à analyser </b></h3>
+<p>Un intérêt sans aptitude peut mener à :</p>
+<table class="grise" style="width:345px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">De la frustration</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une surcharge d’efforts</span></td></tr></table>
+<p>Une aptitude sans intérêt peut mener à :</p>
+<table class="grise" style="width:346px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Un désengagement</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Une perte de motivation</span></td></tr></table>
+<p>Un projet d’études réaliste cherche un équilibre entre les deux.</p>
+<h2 class="section"><b>LES EXPÉRIENCES COMME SOURCES D’INFORMATION </b></h2>
+<p>Les expériences fournissent des informations précieuses :</p>
+<ul class="liste"><li>Emplois.</li><li>Stages.</li><li>Projets scolaires.</li><li>Bénévolat</li></ul>
+<p>Elles permettent de tester :</p>
+<table class="grise" style="width:347px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Ses intérêts</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Ses aptitudes</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Sa tolérance aux exigences</span></td></tr></table></section><section class="page"><div class="num">18</div><h2 class="section"><b>LES OUTILS DE CONNAISSANCE DE SOI </b></h2>
+<h3 class="soustitre"><b>Des repères, pas des verdicts </b></h3>
+<p>Il existe des outils pour soutenir la réflexion :</p>
+<table class="grise" style="width:361px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Questionnaires d’intérêts</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Bilans personnels</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Rencontres d’orientation</span></td></tr></table>
+<h1 class="chapitre"><b>CHAPITRE 9 : LES RESSOURCES D’ACCOMPAGNEMENT </b> <b>INTERNES ET EXTERNES </b></h1>
+<h2 class="section"><b>LES SERVICES D’ORIENTATION </b></h2>
+<h3 class="soustitre"><b>Clarifier un projet </b></h3>
+<p>Les services d’orientation accompagnent les élèves dans :</p>
+<table class="grise" style="width:582px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">La réflexion sur leur parcours</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">L’exportation des options scolaires et professionnelles</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">La réorientation</span></td></tr></table>
+<p>Ils aident à :</p>
+<table class="grise" style="width:584px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Mettre en lien les intérêts, les aptitudes et les possibilités</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Comprendre les exigences des programmes</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Évaluer la cohérence d’un projet</span></td></tr></table>
+<h2 class="section"><b>LES SERVICES D’AIDE PÉDAGOGIQUE </b></h2>
+<h3 class="soustitre"><b>Soutenir la réussite</b></h3>
+<table class="grise" style="width:403px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Soutenir l’organisation scolaire</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Améliorer les stratégies d’étude</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Prévenir l’échec</span></td></tr></table></section><section class="page"><div class="num">19</div><p>Ils interviennent lorsque :</p>
+<ul class="liste"><li>Les résultats diminuent</li><li>La charge de travail devient difficile à gérer</li></ul>
+<p>Ils permettent souvent d’ajuster les méthodes plutôt que d’abandonner un projet.</p>
+<h2 class="section"><b>LES SERVICES D’AIDE PSYCHOSOCIALE </b></h2>
+<h3 class="soustitre"><b>Prendre en compte la personne entière </b></h3>
+<p>Les études ne sont pas uniquement une activité intellectuelle. Les services psychosociaux accompagnent les élèves face à :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Stress</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Surcharge</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Anxiété</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Situations personnelles difficiles</span></td></tr></table>
+<p>Ces facteurs influencent directement la persévérance scolaire.</p>
+<h2 class="section"><b>LES RESSOURCES FINANCIÈRES INTERNES </b></h2>
+<h3 class="soustitre"><b>Un soutien ponctuel </b></h3>
+<p>Certains établissements offrent :</p>
+<ul class="liste"><li>Des fonds d’urgence.</li><li>De l’aide financière ponctuelle.</li><li>Des services d’information financière.</li></ul>
+<p>Ces ressources peuvent prévenir un abandon temporaire et/ou aider à traverser une période difficile.</p>
+<h1 class="chapitre"><b>CHAPITRE 10 : CONSTRUIRE UN PARCOURS RÉALISTE ET </b> <b>ÉVOLUTIF </b></h1>
+<h3 class="soustitre"><b>Planifier sans figer, avancer sans s’épuiser </b></h3>
+<p>Poursuivre des études ne consiste pas à suivre un trajet parfaitement tracé. Un parcours scolaire est rarement linéaire.  Il comporte :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des ajustements</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des pauses</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des détours</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des retours en arrière</span></td></tr></table></section><section class="page"><div class="num">20</div><h2 class="section"><b>LA NOTION DE PARCOURS </b></h2>
+<p>Un parcours est une succession de choix effectués dans un contexte donné. Ces choix sont influencés par :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les contraintes financières</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">L’état de santé</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les responsabilités personnelles</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les opportunités disponibles</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Les résultats scolaires</span></td></tr></table>
+<h2 class="section"><b>LE RÉALISME </b></h2>
+<h3 class="soustitre"><b>Une condition de persévérance </b></h3>
+<p>Être réaliste ne signifie pas renoncer à ses ambitions. Cela signifie :</p>
+<table class="grise" style="width:387px;margin-left:-0px"><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Évaluer ses ressources</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Reconnaître ses limites actuelles</span></td></tr><tr><td style="width:100.0%"><span class="picot">●</span> <span class="rep cache">Anticiper les obstacles</span></td></tr></table>
+<p>Un projet irréaliste est plus fragile qu’un projet ajusté.</p>
+<h2 class="section"><b>LES ÉTAPES D’UN PARCOURS </b></h2>
+<h3 class="soustitre"><b>Penser en séquences </b></h3>
+<p>Un parcours scolaire peut être divisé en étapes :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Court terme</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Moyen terme</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Long terme</span></td></tr></table>
+<h2 class="section"><b>L’ÉQUILIBRE DES SPHÈRES DE VIE </b></h2>
+<h3 class="soustitre"><b>Un facteur de durabilité </b></h3>
+<p>Un parcours soutenable tient compte :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Des études</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">De la vie personnelle</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Du travail</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">De la santé</span></td></tr></table>
+<p>Sacrifier systématiquement une sphère fragilise l’ensemble du projet. La persévérance dépend de l’équilibre, pas seulement de la volonté.</p></section><section class="page"><div class="num">21</div><h2 class="section"><b>LES AJUSTEMENTS </b></h2>
+<h3 class="soustitre"><b>Un mécanisme normal </b></h3>
+<p>Modifier un parcours n’est pas un échec. Les ajustements peuvent concerner :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le rythme des études</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le type de programme</span></td></tr><tr><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le nombre de cours</span></td><td style="width:49.9%"><span class="picot">●</span> <span class="rep cache">Le mode de financement</span></td></tr></table>
+<p>Ils permettent de maintenir le projet vivant plutôt que de l’abandonner.</p>
+<h2 class="section"><b>LES INTERRUPTIONS </b></h2>
+<h3 class="soustitre"><b>Des pauses parfois nécessaires </b></h3>
+<p>Une interruption peut :</p>
+<ul class="liste"><li>Permettre de reprendre des forces.</li><li>Clarifier un projet.</li><li>Stabiliser une situation financière.</li></ul>
+<p>Une pause réfléchie n’annule pas un parcours. Elle peut le rendre possible.</p>
+<h2 class="section"><b>LA RÉORIENTATION </b></h2>
+<h3 class="soustitre"><b>Une décision stratégique </b></h3>
+<p>Changer de direction peut être :</p>
+<table class="grise" style="width:623px;margin-left:-0px"><tr><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Une correction</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Une adaptation</span></td><td style="width:33.2%"><span class="picot">●</span> <span class="rep cache">Une évolution</span></td></tr></table>
+<p>La réorientation devient problématique seulement lorsqu’elle est répétée sans réflexion. Une réorientation réfléchie est un signe de lucidité.</p>
+<h2 class="section"><b>LA PERSÉVÉRANCE </b></h2>
+<h3 class="soustitre"><b>Un processus, pas un trait de caractère </b></h3>
+<p>La persévérance n’est pas une qualité innée. Elle dépend du contexte, du soutien, des conditions matérielles et de la compréhension des enjeux.</p>
+<p>Persévérer, ce n’est pas s’entêter. C’est ajuster sans abandonner.</p></section><section class="page"><div class="num">22</div><h2 class="section"><b>UN PARCOURS ÉVOLUTIF </b></h2>
+<h3 class="soustitre"><b>S’adapter au changement </b></h3>
+<p>Les projets évoluent avec :</p>
+<table class="grise" style="width:680px;margin-left:-28px"><tr><td style="width:30.9%"><span class="picot">●</span> <span class="rep cache">Les expériences</span></td><td style="width:34.1%"><span class="picot">●</span> <span class="rep cache">Les apprentissages</span></td><td style="width:34.7%"><span class="picot">●</span> <span class="rep cache">Les réalités de vie</span></td></tr></table>
+<div class="saviez regulier"><div class="sv-titre"><i>LE SAVIEZ-VOUS ? — Un parcours parfait n’existe pas </i></div><div><i></i></div><div><i>La majorité des adultes n’ont pas suivi le parcours qu’ils avaient imaginé à 17 ans. </i></div><div><i>Ils ont ajusté. </i></div><div><i>Interrompu. </i></div><div><i>Repris autrement. </i></div><div><i></i></div><div>👉<i> Un parcours réaliste n’est pas droit. Il est soutenable. </i></div></div></section>
+<script>
+  const reps = document.querySelectorAll('.rep');
+  function majCompteur() {
+    const visibles = document.querySelectorAll('.rep:not(.cache)').length;
+    document.getElementById('compteur').textContent =
+      'Réponses affichées : ' + visibles + ' / ' + reps.length;
+  }
+  reps.forEach(r => r.addEventListener('click', () => {
+    r.classList.toggle('cache'); majCompteur();
+  }));
+  function toutAfficher() { reps.forEach(r => r.classList.remove('cache')); majCompteur(); }
+  function toutMasquer() { reps.forEach(r => r.classList.add('cache')); majCompteur(); }
+  majCompteur();
+</script>
+</body>
+</html>
